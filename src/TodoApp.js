@@ -6,7 +6,6 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 
-
 function TodoApp() {
 
   const initialTodos = [
