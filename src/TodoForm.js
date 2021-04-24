@@ -18,6 +18,8 @@ function TodoForm({ addTodo }) {
              value ={value} 
              onChange={handleChange} 
              margin="normal" 
+             label="add new todo"
+             fullWidth
              />
           </form>
       </Paper>
