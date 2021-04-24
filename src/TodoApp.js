@@ -11,6 +11,7 @@ function TodoApp() {
 
   const initialTodos = [
     { id: 1, task: "Bananas", completed: false},
+    { id: 1, task: "Strawberries", completed: false},
     { id: 2, task: "Lemons", completed: true },
     { id: 3, task: "Apples", completed: false }
   ];
