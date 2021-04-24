@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 
+
 function TodoApp() {
 
   const initialTodos = [
@@ -18,6 +19,7 @@ function TodoApp() {
   const addTodo = newTodoText => {
     setTodos([...todos, {id: 4, task: newTodoText, completed: false}]);
   };
+
 
   return (
     <div className="todo">
