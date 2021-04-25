@@ -7,6 +7,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 
+
 function TodoApp() {
 
   const initialTodos = [
@@ -18,9 +19,16 @@ function TodoApp() {
 
   const [todos, setTodos ] = useState(initialTodos);
   const addTodo = newTodoText => {
-    setTodos([...todos, {id: 4, task: newTodoText, completed: false}]);
+    setTodos([...todos, {id: 4, task: newTodoText, completed: false }]);
   };
 
+  // remove, we can't use delete because is a reserved keyword for JS
+  const removeTodo = todoID => {
+  // filter out removed todo
+  const updatedTodos = todos.filter(todo => todo.id !== todoID);
+  // call setTodos with new todos array
+  setTodos(updatedTodos);
+  };
 
   return (
     <div className="todo">
@@ -32,7 +40,7 @@ function TodoApp() {
        }}
        elevation={0}
        >
-           <AppBar color='secondary'  position='static' style={{ height: "64px" }}>
+           <AppBar color='secondary' position='static' style={{ height: "64px" }}>
               <Toolbar>
                   <Typography color='inherit'>Todos with Hooks</Typography>
               </Toolbar>
@@ -40,7 +48,7 @@ function TodoApp() {
            <Grid container justify="center" style={{marginTop: "1rem"}}>
              <Grid item xs={11} md={8} lg={4}>
             <TodoForm addTodo={addTodo} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} removeTodo={removeTodo} />
              </Grid>
            </Grid>
        </Paper>
