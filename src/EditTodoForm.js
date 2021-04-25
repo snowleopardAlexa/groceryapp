@@ -10,12 +10,18 @@ function EditTodoForm({ id, editTodo, task, toggleEditForm }) {
       editTodo(id, value);
       reset();
       toggleEditForm();
-    }}>
+    }}
+      style={{ marginLeft: '1rem', width: '100%' }}
+    >
        <TextField 
        margin="normal" 
        value={value}
        onChange={handleChange}
        fullWidth
+       // eliminates the need to click on the 
+       // input form again to start typing
+       // we can start type right away after clicking edit icon
+       autoFocus
        />
     </form>
   )
