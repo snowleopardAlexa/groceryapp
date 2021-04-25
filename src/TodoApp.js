@@ -31,6 +31,14 @@ function TodoApp() {
   setTodos(updatedTodos);
   };
 
+  // checkbox
+  const toggleTodo = todoId => {
+    const updatedTodos = todos.map(todo => 
+      todo.id === todoId ? {...todo, completed: !todo.completed } : todo
+    );
+    setTodos(updatedTodos);
+  }
+
   return (
     <div className="todo">
        <Paper style={{
@@ -49,7 +57,11 @@ function TodoApp() {
            <Grid container justify="center" style={{marginTop: "1rem"}}>
              <Grid item xs={11} md={8} lg={4}>
             <TodoForm addTodo={addTodo} />
-            <TodoList todos={todos} removeTodo={removeTodo} />
+            <TodoList
+              todos={todos} 
+              removeTodo={removeTodo} 
+              toggleTodo={toggleTodo}
+            />
              </Grid>
            </Grid>
        </Paper>
