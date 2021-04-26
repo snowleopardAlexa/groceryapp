@@ -13,10 +13,16 @@ function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
                   {todos.map((todo, i) => (
                       <>
                       <Todo 
+                      // we manually pasing  
+                      //  id={todo.id}
+                      //  task={todo.task} 
+                      //  completed={todo.completed} 
+                      // so we can just pass {...todo}
+                      // id, task, completed will be passed down as individual props
+                      {...todo}
                         id={todo.id}
                         task={todo.task} 
                         key={todo.id} 
-                        completed={todo.completed} 
                         removeTodo={removeTodo}
                         toggleTodo={toggleTodo}
                         editTodo={editTodo}
