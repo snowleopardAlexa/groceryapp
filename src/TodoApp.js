@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList'
 import TodoForm from './TodoForm';
 import Typography from "@material-ui/core/Typography";
@@ -19,6 +19,7 @@ function TodoApp() {
   ];
 
   const [todos, setTodos ] = useState(initialTodos);
+
   const addTodo = newTodoText => {
     setTodos([...todos, {id: uuid(), task: newTodoText, completed: false }]);
   };
@@ -30,6 +31,11 @@ function TodoApp() {
   // call setTodos with new todos array
   setTodos(updatedTodos);
   };
+
+  // when we add a list item and refresh the page, the list item does not disappear
+   useEffect(() => {
+    alert("use effect works!")
+  });
 
   // checkbox
   const toggleTodo = todoId => {
