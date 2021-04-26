@@ -5,6 +5,8 @@ import Divider from "@material-ui/core/Divider";
 import Todo from "./Todo";
 
 function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
+    // we eliminate a design tweak - an empty todo card that is left when there is zero list items
+    if (todos.length)
     return (
           <Paper>
               <List>
@@ -26,6 +28,7 @@ function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
               </List>
           </Paper>
     );
+    return null; 
 }
 
 export default TodoList;
