@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList'
 import TodoForm from './TodoForm';
 import Typography from "@material-ui/core/Typography";
@@ -10,15 +10,19 @@ import uuid from 'uuid/v4';
 
 
 function TodoApp() {
+  // when we add a list item and refresh the page, the list item does not disappear
+  // instead of array of objects 
+  const initialTodos = JSON.parse(window.localStorage.getItem('todos') || "[]");
 
-  const initialTodos = [
-    { id: 1, task: "Bananas", completed: false},
-    { id: 2, task: "Strawberries", completed: false},
-    { id: 3, task: "Lemons", completed: true },
-    { id: 4, task: "Apples", completed: false }
-  ];
+ // const initialTodos = [
+ //   { id: 1, task: "Bananas", completed: false},
+ //   { id: 2, task: "Strawberries", completed: false},
+ //   { id: 3, task: "Lemons", completed: true },
+ //   { id: 4, task: "Apples", completed: false }
+ //  ];
 
   const [todos, setTodos ] = useState(initialTodos);
+
   const addTodo = newTodoText => {
     setTodos([...todos, {id: uuid(), task: newTodoText, completed: false }]);
   };
@@ -30,6 +34,12 @@ function TodoApp() {
   // call setTodos with new todos array
   setTodos(updatedTodos);
   };
+
+  // when we add a list item and refresh the page, the list item does not disappear
+  // it runs when every time the component rerenders. 
+   useEffect(() => {
+    window.localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   // checkbox
   const toggleTodo = todoId => {
