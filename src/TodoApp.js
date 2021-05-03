@@ -11,7 +11,7 @@ import Grid from "@material-ui/core/Grid";
 function TodoApp() {
   // when we add a list item and refresh the page, the list item does not disappear
   // instead of array of objects 
-  const initialTodos = JSON.parse(window.localStorage.getItem('todos') || "[]");
+  const initialTodos = [{id: 1, task: "Pet a Cat", completed: false }];
   const {todos, addTodo, removeTodo, toggleTodo, editTodo} = useTodoState(initialTodos);
 
  // const initialTodos = [
