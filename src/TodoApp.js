@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useTodoState from './hooks/useTodoState';
 import TodoList from './TodoList'
 import TodoForm from './TodoForm';
@@ -11,7 +11,7 @@ import Grid from "@material-ui/core/Grid";
 function TodoApp() {
   // when we add a list item and refresh the page, the list item does not disappear
   // instead of array of objects 
-  const initialTodos = JSON.parse(window.localStorage.getItem('todos') || "[]");
+  const initialTodos = [{id: 1, task: "Pet a Cat", completed: false }];
   const {todos, addTodo, removeTodo, toggleTodo, editTodo} = useTodoState(initialTodos);
 
  // const initialTodos = [
@@ -23,9 +23,9 @@ function TodoApp() {
 
   // when we add a list item and refresh the page, the list item does not disappear
   // it runs when every time the component rerenders. 
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  // useEffect(() => {
+  //  window.localStorage.setItem("todos", JSON.stringify(todos));
+  // }, [todos]); --> WE SENT THIS PIECE OF CODE TO useLocalStorageState.js
 
   return (
     <div className="todo">

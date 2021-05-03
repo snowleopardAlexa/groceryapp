@@ -1,10 +1,11 @@
 // it is not about re-using the content, it is simplification of the TodoApp.js
 // we migrate all hook functions here
-import { useState } from "react";
+import useLocalStorageState from './useLocalStorageState';
 import uuid from 'uuid/v4';
 
 export default initialTodos => {
-    const [todos, setTodos] = useState(initialTodos);
+    // we use one custom hook inside another custom hook
+    const [todos, setTodos] = useLocalStorageState("todos", initialTodos);
     return {
         todos,
         addTodo: newTodoText => {
