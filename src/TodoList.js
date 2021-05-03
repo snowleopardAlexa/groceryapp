@@ -13,7 +13,7 @@ function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
                   {todos.map((todo, i) => (
                       <>
                       <Todo 
-                      // we manually pasing  
+                      // we manually passing  
                       //  id={todo.id}
                       //  task={todo.task} 
                       //  completed={todo.completed} 
