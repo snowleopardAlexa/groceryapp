@@ -23,9 +23,9 @@ function TodoApp() {
 
   // when we add a list item and refresh the page, the list item does not disappear
   // it runs when every time the component rerenders. 
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  // useEffect(() => {
+  //  window.localStorage.setItem("todos", JSON.stringify(todos));
+  // }, [todos]); --> WE SENT THIS PIECE OF CODE TO useLocalStorageState.js
 
   return (
     <div className="todo">
